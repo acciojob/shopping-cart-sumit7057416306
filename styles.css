@@ -1,2 +1,21 @@
 
 /* Your CSS Code here. */
+inputs{
+    margin: auto;
+}
+#total{
+    margin: 0 50px 0 0;
+}
+table,td,th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+th,td {
+    padding: 15px;
+}
