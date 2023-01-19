@@ -8,27 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="inputs" style="display: flex; gap: 10px;">
-        <form id="myinputs">
-            <input type="text" id="item-name-input" placeholder="Name">
-            <input type="text" id="item-qty-input" placeholder="Qty">
-            <input type="text" id="item-price-input" placeholder="Price">
-        </form>
-        <button id="add" onclick="addData();">Add</button>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-    
-        </tbody>
-    </table>
+  <div>
+  <label for="item-name-input">Item name:</label>
+  <input type="text" id="item-name-input" aria-label="Enter item name">
+  <label for="item-price-input">Price:</label>
+  <input type="number" id="item-price-input" aria-label="Enter item price">
+  <button id="add" aria-label="add item to list" onclick="addItem()">Add</button>
+</div>
+
+<table id="shopping-list" aria-label="Shopping list">
+  <tr>
+    <th id="item" scope="col">Item</th>
+    <th id="price" scope="col">Price</th>
+  </tr>
+  <tr>
+    <td>Grand Total</td>
+    <td id="total">0</td>
+  </tr>
+</table>
     <div><h3 id="total">Grand Total: <span id="grand_total">0</span>  $</h3></div>
         <!-- the entire body must be written by student -->
         <script type="text/javascript" src="./script.js">

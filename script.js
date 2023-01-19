@@ -1,22 +1,29 @@
-//your code here
-let grandtotal = 0;
-function addData(){
-    let name=document.querySelector("#item-name-input").value;
-    let qty=document.querySelector("#item-qty-input").value;
-    let price=document.querySelector("#item-price-input").value;
-    console.log(name, qty, price);
-    let item=document.createElement("tr");
-    let td1=document.createElement("td");
-    td1.textContent=name;
-    let td2=document.createElement("td");
-    td2.textContent=qty;
-    let td3=document.createElement("td");
-    td3.textContent=price;
-    let td4=document.createElement("td");
-    td4.textContent=qty*price;
-    item.append(td1,td2,td3,td4);
-    document.querySelector("tbody").append(item);
-    grandtotal+=qty*price;
-    document.querySelector("#grand_total").textContent=grandtotal;
-    document.querySelector("#myinputs").reset();
-}
+let total = 0;
+
+      function addItem() {
+        // get the item name and price from the input fields
+        let itemName = document.getElementById("item-name-input").value;
+        let itemPrice = document.getElementById("item-price-input").value;
+
+        // validate the input
+        if (itemName === "" || itemPrice === "" || isNaN(itemPrice)) {
+          alert("Please enter a valid item name and price.");
+          return;
+        }
+
+        // add the item and price to the table
+        let table = document.getElementById("table");
+        let row = table.insertRow(-1);
+        let nameCell = row.insertCell(0);
+        let priceCell = row.insertCell(1);
+        nameCell.innerHTML = itemName;
+        priceCell.innerHTML = "$" + itemPrice;
+
+        // update the grand total
+        total += parseFloat(itemPrice);
+        document.getElementById("total").innerHTML = "Grand total: $" + total.toFixed(2);
+
+        // clear the input fields
+        document.getElementById("item-name-input").value = "";
+        document.getElementById("item-price-input").value = "";
+      }
