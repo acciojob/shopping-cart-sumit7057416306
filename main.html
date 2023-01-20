@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping cart</title>
-    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+	<!-- the entire body must be written by student -->
   <div>
   <label for="item-name-input">Item name:</label>
   <input type="text" id="item-name-input" aria-label="Enter item name">
@@ -26,10 +26,32 @@
     <td id="total">0</td>
   </tr>
 </table>
-    <div><h3 id="total">Grand Total: <span id="grand_total">0</span>  $</h3></div>
-        <!-- the entire body must be written by student -->
-        <script type="text/javascript" src="./script.js">
-    </script>
-    
+
+<script>
+  let total = 0;
+  function addItem() {
+    const name = document.getElementById("item-name-input").value;
+    const price = document.getElementById("item-price-input").value;
+    if (name.trim() === "" || price.trim() === "") {
+      alert("Invalid input. Please enter both item name and price.");
+      return;
+    }
+    const table = document.getElementById("shopping-list");
+    const newRow = table.insertRow(-1);
+    const nameCell = newRow.insertCell(0);
+    const priceCell = newRow.insertCell(1);
+    nameCell.innerHTML = name;
+    priceCell.innerHTML = price;
+    total += parseFloat(price);
+    document.getElementById("total").innerHTML = total;
+    document.getElementById("item-name-input").value = "";
+    document.getElementById("item-price-input").value = "";
+  }
+</script>
+
+    <script type="text/javascript" src="./script.js">
+</script>
+
 </body>
+
 </html>
